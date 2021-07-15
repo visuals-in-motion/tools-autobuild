@@ -1,0 +1,12 @@
+{
+  "name": "ru.visuals.autobuild",
+  "version": "1.0.0",
+  "description": "Библиотека для атоматической сборки проекта",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visuals-in-motion/tools-autobuild.git"
+  },
+  "author": "Visuals <hello@visuals.ru> (https://github.com/visuals-in-motion)",
+  "displayName": "Visuals Autobuild",
+  "dependencies": {}
+}

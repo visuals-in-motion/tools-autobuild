@@ -1,0 +1,16 @@
+{
+    "name": "Visuals.Autobuild.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Visuals.Autobuild"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
