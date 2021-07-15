@@ -1,4 +1,4 @@
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -39,7 +39,7 @@ namespace Visuals
             if (!File.Exists(streamingPath + "/credentials.json"))
             {
                 if (!Directory.Exists(streamingPath)) Directory.CreateDirectory(streamingPath);
-                File.Copy(Application.dataPath /*GetPackageRelativePath()*/ + "/Package Resources/credentials.json", streamingPath + "/credentials.json");
+                File.Copy(GetPackageRelativePath() + "/Package Resources/credentials.json", streamingPath + "/credentials.json");
             }
         }
 
@@ -66,4 +66,4 @@ namespace Visuals
         }
     }
 }
-//#endif
+#endif
