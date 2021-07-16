@@ -9,6 +9,7 @@
   "author": "Visuals <hello@visuals.ru> (https://github.com/visuals-in-motion)",
   "displayName": "Visuals Autobuild",
   "dependencies": {
-    "ru.visuals.localization": "1.0.21"
-  }
+    "ru.visuals.google-libraries": "https://github.com/visuals-in-motion/tools-google-libraries.git"
+  },
+  "enableLockFile": true
 }
