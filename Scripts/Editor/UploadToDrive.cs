@@ -1,32 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
-using UnityEngine.Rendering;
-using XDiffGui;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Drive.v3;
-using Google.Apis.Drive.v3.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-using File = Google.Apis.Drive.v3.Data.File;
 
 
 namespace Visuals
 {
+    #if UNITY_EDITOR
     public class UploadToDrive : EditorWindow
     {
         private string path;
         private string status = String.Empty;
 
-        [MenuItem("Visuals/Build/Upload")]
+
+        [MenuItem("Visuals/Autobuild/Upload")]
         public static void ShowWindow()
         {
             UploadToDrive window = GetWindow<UploadToDrive>();
@@ -71,6 +59,7 @@ namespace Visuals
 
             return linq;
         }
+        
     }
+#endif
 }
-

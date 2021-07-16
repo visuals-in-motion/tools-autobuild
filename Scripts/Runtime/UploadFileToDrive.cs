@@ -30,7 +30,7 @@ namespace Visuals
 
             if (Directory.Exists(buildPath))
             {
-                string credentialsPath = Application.streamingAssetsPath + "/Localization/credentials.json";
+                string credentialsPath = Application.streamingAssetsPath + "/Autobuild/credentials.json";
 
                 using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
                 {

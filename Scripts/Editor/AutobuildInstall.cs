@@ -1,10 +1,11 @@
-#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEditor;
 using System.IO;
 
 namespace Visuals
 {
+    #if UNITY_EDITOR
     [InitializeOnLoad]
     public class AutobuildInstall
     {
@@ -27,14 +28,6 @@ namespace Visuals
         [MenuItem("Visuals/Autobuild/Import StreamingAssets")]
         public static void CheckCredentials()
         {
-            if (!Directory.Exists(Application.dataPath + "/Resources")) Directory.CreateDirectory(Application.dataPath + "/Resources");
-            if (!File.Exists(Application.dataPath + "/Resources/CheckLibraries.asset"))
-            {
-                CheckLibraries asset = ScriptableObject.CreateInstance<CheckLibraries>();
-                AssetDatabase.CreateAsset(asset, "Assets/Resources/CheckLibraries.asset");
-                AssetDatabase.SaveAssets();
-            }
-
             string streamingPath = Application.streamingAssetsPath + "/Autobuild";
             if (!File.Exists(streamingPath + "/credentials.json"))
             {
@@ -64,6 +57,7 @@ namespace Visuals
             Debug.LogError("Error: path not found");
             return null;
         }
+
     }
-}
 #endif
+}

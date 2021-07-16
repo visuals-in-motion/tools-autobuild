@@ -1,25 +1,25 @@
 using System;
-using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
+#if UNITY_EDITOR_WIN
 using UnityEditor;
 using UnityEditor.Callbacks;
+#endif
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace Visuals
 {
 	public class AutoBuild
 	{
-		[MenuItem("Visuals/Build/Windows")]
+		#if UNITY_EDITOR_WIN
+		[MenuItem("Visuals/Autobuild/Build")]
 		static void Windows()
 		{
 			var scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
 			BuildPipeline.BuildPlayer(scenes, "Build/Visuals.exe", BuildTarget.StandaloneWindows64, BuildOptions.None);
 		}
 
-#if UNITY_EDITOR_WIN
+
 		[PostProcessBuildAttribute(1)]
 		public static void OnPostBuild(BuildTarget target, string pathToBuiltProject)
 		{
