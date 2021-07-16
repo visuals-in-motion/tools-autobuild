@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Visuals
         private CheckLibraries() { }
 
         private static CheckLibraries _instance = null;
-        public static CheckLibraries GetInstance()
+        private static CheckLibraries GetInstance() 
         {
             if (_instance == null)
             {
@@ -32,10 +33,11 @@ namespace Visuals
             set
             {
                 GetInstance().Check = value;
-#if UNITY_EDITOR
-                EditorUtility.SetDirty(GetInstance());
-#endif
+
+                EditorUtility.SetDirty(GetInstance());   
+
             }
         }
     }
 }
+#endif

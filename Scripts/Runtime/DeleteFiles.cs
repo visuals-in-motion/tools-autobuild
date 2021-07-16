@@ -19,6 +19,7 @@ namespace Visuals
             }
             else
             {
+                Debug.Log("check");
                 CheckLibraries.Instance = true;
                 string libraryPath = Application.dataPath.Replace("Assets", "Library/PackageCache");
 
