@@ -9,6 +9,6 @@
   "author": "Visuals <hello@visuals.ru> (https://github.com/visuals-in-motion)",
   "displayName": "Visuals Autobuild",
   "dependencies": {
-    "ru.visuals.localization": "https://github.com/visuals-in-motion/tools-localization.git"
+    "ru.visuals.localization": "1.0.21"
   }
 }
