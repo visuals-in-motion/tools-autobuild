@@ -10,6 +10,5 @@
   "displayName": "Visuals Autobuild",
   "dependencies": {
     "ru.visuals.google-libraries": "https://github.com/visuals-in-motion/tools-google-libraries.git"
-  },
-  "enableLockFile": false
+  }
 }
