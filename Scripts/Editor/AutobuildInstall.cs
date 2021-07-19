@@ -1,7 +1,9 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Linq;
 
 namespace Visuals
 {
@@ -28,6 +30,7 @@ namespace Visuals
         [MenuItem("Visuals/Autobuild/Import StreamingAssets")]
         public static void CheckCredentials()
         {
+            AddDependencyToManifest();
             string streamingPath = Application.streamingAssetsPath + "/Autobuild";
             if (!File.Exists(streamingPath + "/credentials.json"))
             {
@@ -58,6 +61,19 @@ namespace Visuals
             return null;
         }
 
+        private static void AddDependencyToManifest()
+        {
+            string manifestPath = Path.GetFullPath("Packages/manifest.json");
+            string googleLibrariesPackage =
+                "\"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",";
+            List<string> file = File.ReadAllLines(manifestPath).ToList();
+            if(!file.Contains(googleLibrariesPackage))
+            {
+                file.Insert(2, "\"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",");
+                File.WriteAllLines(manifestPath, file);
+                AssetDatabase.Refresh();
+            }
+        }
     }
 #endif
 }
