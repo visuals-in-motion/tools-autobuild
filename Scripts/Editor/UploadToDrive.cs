@@ -34,8 +34,10 @@ namespace Visuals
                 {
                     status = "Укажите ссылку на гугл диск";
                 }
+#if GOOGLE_LIB
                 else
                     status = UploadFileToDrive.Upload(ParseFolderLinq(path));
+#endif
             }
         }
 

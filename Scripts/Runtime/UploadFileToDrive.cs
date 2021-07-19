@@ -1,8 +1,11 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿#if GOOGLE_LIB
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using File = Google.Apis.Drive.v3.Data.File;
+#endif
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,18 +13,20 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using File = Google.Apis.Drive.v3.Data.File;
+
 using UnityEngine;
 
 namespace Visuals
 {
     public class UploadFileToDrive
     {
+#if GOOGLE_LIB
         static string[] Scopes = { DriveService.Scope.Drive };
         static string ApplicationName = "Visuals upload build";
-
+#endif
         public static string Upload(string folderInDrive)
         {
+#if GOOGLE_LIB
             UserCredential credential;
 
             string buildPath = Application.dataPath.Replace("Assets", "Build");
@@ -78,8 +83,10 @@ namespace Visuals
             {
                 return "Нет папки билда";
             }
+#endif
+            return null;
         }
-
+#if GOOGLE_LIB
         private static string UpdateFile(string uploadFile, string uploadFilePath, DriveService service, string id)
         {
             try
@@ -105,6 +112,7 @@ namespace Visuals
 
         private static string UploadFile(string uploadFile, string uploadFilePath, DriveService service, string folderInDrive)
         {
+
             try
             {
                 var driveFile = new File();
@@ -127,8 +135,9 @@ namespace Visuals
             }
 
             return "Файл загружен";
-        }
 
+        }
+#endif
         private static string GetMimeType(string fileName)
         {
             string mimeType = "application/unknown";
