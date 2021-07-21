@@ -64,12 +64,11 @@ namespace Visuals
         private static void AddDependencyToManifest()
         {
             string manifestPath = Path.GetFullPath("Packages/manifest.json");
-            string googleLibrariesPackage =
-                "\"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",";
+            string googleLibrariesPackage = "    \"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",";
             List<string> file = File.ReadAllLines(manifestPath).ToList();
             if(!file.Contains(googleLibrariesPackage))
             {
-                file.Insert(2, "\"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",");
+                file.Insert(2, googleLibrariesPackage);
                 File.WriteAllLines(manifestPath, file);
                 AssetDatabase.Refresh();
             }
