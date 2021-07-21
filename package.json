@@ -8,7 +8,5 @@
   },
   "author": "Visuals <hello@visuals.ru> (https://github.com/visuals-in-motion)",
   "displayName": "Visuals Autobuild",
-  "gitDependencies": {
-    "ru.visuals.google-libraries": "https://github.com/visuals-in-motion/tools-google-libraries.git"
-  }
+  "dependencies": {}
 }
