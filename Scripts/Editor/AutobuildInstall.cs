@@ -1,7 +1,8 @@
-
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.IO;
 using System.Linq;
 
@@ -14,6 +15,7 @@ namespace Visuals
         private static string manifestPath;
         static AutobuildInstall()
         {
+            CheckDependencyInManifest();
             CheckCredentials();
         }
 
@@ -31,7 +33,6 @@ namespace Visuals
         [MenuItem("Visuals/Autobuild/Import StreamingAssets")]
         public static void CheckCredentials()
         {
-            CheckDependencyInManifest();
             string streamingPath = Application.streamingAssetsPath + "/Autobuild";
             if (!File.Exists(streamingPath + "/credentials.json"))
             {
@@ -80,7 +81,6 @@ namespace Visuals
             {
                 file.Insert(2, dependency);
                 File.WriteAllLines(manifestPath, file);
-                AssetDatabase.Refresh();
             }
         }
     }
