@@ -83,8 +83,9 @@ namespace Visuals
             {
                 return "Нет папки билда";
             }
-#endif
+#else
             return null;
+#endif
         }
 #if GOOGLE_LIB
         private static string UpdateFile(string uploadFile, string uploadFilePath, DriveService service, string id)
