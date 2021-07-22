@@ -36,8 +36,9 @@ namespace Visuals
 			{
 				File.Delete(zipPath);
 			}
-
+#if COMMAND	
 			CommandLine.Run($"powershell Compress-Archive {startPath} {zipPath}");
+#endif
 		}
 #endif
 	}
