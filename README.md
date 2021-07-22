@@ -6,7 +6,9 @@
 
 ![2021-07-22_15-09-20](https://user-images.githubusercontent.com/52681127/126636917-f074fe85-db14-4b3f-a85a-930e40f2fd07.png)
 
-После этого загрузятся дополнительные пакеты для работы с google библиотеками(Visuals Google Libraries) и для работы с командной строкой(Visuals Command).
+После этого загрузятся дополнительные пакеты для работы с google библиотеками(Visuals Google Libraries): https://github.com/visuals-in-motion/tools-google-libraries
+
+И для работы с командной строкой(Visuals Command): https://github.com/visuals-in-motion/tools-command
 
 При удалении пакета дополнительные пакеты не удаляются.
 
