@@ -16,7 +16,7 @@ namespace Visuals
 		static void Windows()
 		{
 			var scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
-			BuildPipeline.BuildPlayer(scenes, "Build/Visuals.exe", BuildTarget.StandaloneWindows64, BuildOptions.None);
+			BuildPipeline.BuildPlayer(scenes, $"Build\\{Application.productName}.zip", BuildTarget.StandaloneWindows64, BuildOptions.None);
 		}
 
 
