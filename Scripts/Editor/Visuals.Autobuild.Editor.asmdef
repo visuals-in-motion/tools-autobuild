@@ -2,7 +2,8 @@
     "name": "Visuals.Autobuild.Editor",
     "rootNamespace": "",
     "references": [
-        "Visuals.Autobuild"
+        "Visuals.Autobuild",
+        "Visuals.Command"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,7 +1,9 @@
 {
     "name": "Visuals.Autobuild",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:36d6f029219d8cc4393ffb4b8503cdad"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
