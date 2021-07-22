@@ -11,6 +11,7 @@ namespace Visuals
     [InitializeOnLoad]
     public class AutobuildInstall
     {
+        private static string manifestPath;
         static AutobuildInstall()
         {
             CheckCredentials();
@@ -30,7 +31,7 @@ namespace Visuals
         [MenuItem("Visuals/Autobuild/Import StreamingAssets")]
         public static void CheckCredentials()
         {
-            AddDependencyToManifest();
+            CheckDependencyInManifest();
             string streamingPath = Application.streamingAssetsPath + "/Autobuild";
             if (!File.Exists(streamingPath + "/credentials.json"))
             {
@@ -61,14 +62,23 @@ namespace Visuals
             return null;
         }
 
-        private static void AddDependencyToManifest()
+        private static void CheckDependencyInManifest()
         {
-            string manifestPath = Path.GetFullPath("Packages/manifest.json");
+            manifestPath = Path.GetFullPath("Packages/manifest.json");
             string googleLibrariesPackage = "    \"ru.visuals.google-libraries\": \"https://github.com/visuals-in-motion/tools-google-libraries.git\",";
+            string commandPackage = "    \"ru.visuals.command\": \"https://github.com/visuals-in-motion/tools-command.git\",";
+            
             List<string> file = File.ReadAllLines(manifestPath).ToList();
-            if(!file.Contains(googleLibrariesPackage))
+            
+            AddDependency(file, googleLibrariesPackage);
+            AddDependency(file, commandPackage);
+        }
+
+        private static void AddDependency(List<string> file, string dependency)
+        {
+            if(!file.Contains(dependency))
             {
-                file.Insert(2, googleLibrariesPackage);
+                file.Insert(2, dependency);
                 File.WriteAllLines(manifestPath, file);
                 AssetDatabase.Refresh();
             }
