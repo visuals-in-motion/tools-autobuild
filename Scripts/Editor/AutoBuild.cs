@@ -11,7 +11,7 @@ namespace Visuals
 {
 	public class AutoBuild
 	{
-		#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN
 		[MenuItem("Visuals/Autobuild/Build")]
 		static void Windows()
 		{
@@ -36,7 +36,7 @@ namespace Visuals
 			{
 				File.Delete(zipPath);
 			}
-#if COMMAND	
+#if COMMAND
 			CommandLine.Run($"powershell Compress-Archive {startPath} {zipPath}");
 #endif
 		}
