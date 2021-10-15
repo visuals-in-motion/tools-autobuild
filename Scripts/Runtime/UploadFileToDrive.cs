@@ -1,4 +1,4 @@
-﻿#if GOOGLE_LIB
+﻿#if GOOGLE_LIB && UNITY_EDITOR_WIN
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Drive.v3.Data;
@@ -20,13 +20,13 @@ namespace Visuals
 {
     public class UploadFileToDrive
     {
-#if GOOGLE_LIB
+#if GOOGLE_LIB && UNITY_EDITOR_WIN
         static string[] Scopes = { DriveService.Scope.Drive };
         static string ApplicationName = "Visuals upload build";
 #endif
         public static string Upload(string folderInDrive)
         {
-#if GOOGLE_LIB
+#if GOOGLE_LIB && UNITY_EDITOR_WIN
             UserCredential credential;
 
             string buildPath = Application.dataPath.Replace("Assets", "Build");
@@ -87,7 +87,7 @@ namespace Visuals
             return null;
 #endif
         }
-#if GOOGLE_LIB
+#if GOOGLE_LIB && UNITY_EDITOR_WIN
         private static string UpdateFile(string uploadFile, string uploadFilePath, DriveService service, string id)
         {
             try
@@ -138,7 +138,7 @@ namespace Visuals
             return "Файл загружен";
 
         }
-#endif
+
         private static string GetMimeType(string fileName)
         {
             string mimeType = "application/unknown";
@@ -148,5 +148,6 @@ namespace Visuals
                 mimeType = regKey.GetValue("Content Type").ToString();
             return mimeType;
         }
+        #endif
     }
 }

@@ -15,8 +15,10 @@ namespace Visuals
         private static string manifestPath;
         static AutobuildInstall()
         {
+#if UNITY_EDITOR_WIN
             CheckDependencyInManifest();
             CheckCredentials();
+#endif
         }
 
         private static Package package;
@@ -85,4 +87,4 @@ namespace Visuals
         }
     }
 #endif
-}
+        }
